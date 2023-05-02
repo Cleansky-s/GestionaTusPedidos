@@ -1,0 +1,20 @@
+{
+  "User":
+  [
+    {
+      "type" : "User",
+      "username" :  "admin",
+      "password" :  "password"
+    },
+    {
+      "type" : "User",
+      "username" :  "cocina",
+      "password" :  "ready123"
+    },
+    {
+      "type" : "User",
+      "username" :  "camarero",
+      "password" :  "welcome"
+    }
+  ]
+}

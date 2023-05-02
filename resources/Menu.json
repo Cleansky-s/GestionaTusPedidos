@@ -1,0 +1,35 @@
+{
+  "Menu":
+  [
+    { "type" : "Menu",
+      "nombre" : "Alaska Roll",
+      "ingredientes" : [
+      	{ "nombre" : "arroz", "cantidad" : "0.10"}, 
+      	{ "nombre" : "salmon", "cantidad" : "0.20"}, 
+      	{ "nombre" : "aguacate", "cantidad" : "0.15"}, 
+      	{ "nombre" : "salsa", "cantidad" : "0.05"}],
+      "price" : "8.99"
+    },
+    { "type" : "Menu",
+      "nombre" : "Canada Roll",
+      "ingredientes" : [
+      	{ "nombre" : "arroz", "cantidad" : "0.10"}, 
+      	{ "nombre" : "cangrejo", "cantidad" : "0.20"}, 
+      	{ "nombre" : "aguacate", "cantidad" : "0.15"}, 
+      	{ "nombre" : "salsa", "cantidad" : "0.05"}],
+      "price" : "8.99"
+    },
+    { "type" : "Menu",
+      "nombre" : "Tortilla",
+      "ingredientes" : [
+      	{ "nombre" : "huevo", "cantidad" : "3"}, 
+      	{ "nombre" : "patata", "cantidad" : "1"}, 
+      	{ "nombre" : "leche", "cantidad" : "0.4"}],
+      "price" : "7.65"
+    },
+    { "type" : "Menu",
+      "nombre" : "Cocacola",
+      "price" : "2.50"
+    }
+  ]
+}
