@@ -151,7 +151,7 @@ public class PedidosPedirMesaAnyadirDialog extends JDialog implements GestionObs
 		this.add(mainPanel);
 		
 		int selection = JOptionPane.showConfirmDialog(
-	            null, mainPanel, "Modificar Cliente : "
+	            null, mainPanel, "Añadir plato : "
 	            , JOptionPane.OK_CANCEL_OPTION
 	            , JOptionPane.PLAIN_MESSAGE);
 		

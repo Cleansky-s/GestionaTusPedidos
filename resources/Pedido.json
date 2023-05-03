@@ -1,1 +1,1 @@
-{"Pedido":[{}]}
+{"Pedido":[{"direccion":"asd","id":"P6815952","type":"Delivery","telefono":"asd","CP":"asd","platos":[{"idPlato":"PL493721"},{"idPlato":"PL130161"}]},{"idMesa":"1","id":"P5784728","type":"Mesa","platos":[{"idPlato":"PL468449"},{"idPlato":"PL792100"},{"idPlato":"PL329494"}]}]}

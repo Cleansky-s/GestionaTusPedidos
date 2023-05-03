@@ -77,7 +77,7 @@ public class PedidosPedirDeliveryDialog extends JDialog implements GestionObserv
         mainPanel.add(centerPanel);
         
         int selection = JOptionPane.showConfirmDialog(
-                null, mainPanel, "Modificar Cliente : "
+                null, mainPanel, "Informacion de Cliente : "
                 , JOptionPane.OK_CANCEL_OPTION
                 , JOptionPane.PLAIN_MESSAGE);
 

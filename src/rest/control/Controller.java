@@ -28,7 +28,7 @@ public class Controller {
     private static BuilderBasedFactory<Pedido> facPedido;
     private static BuilderBasedFactory<Plato> facPlato;
 
-    public Controller() {
+    public Controller() throws FileNotFoundException {
 		 List<Builder<Persona>> b1 = new Vector<>();
 	     b1.add(new ClienteBuilder());
 	     b1.add(new ProveedorBuilder());
@@ -48,6 +48,7 @@ public class Controller {
     	this.daoPedido = new PedidoDAOImpl(facPedido, this);
     	this.daoProveedor = new ProveedorDAOImpl(facPersona, this);
     	this.daoPlato = new PlatoDAOImpl(facPlato);
+        loadData();
 	}
 
 	public void loadData() throws FileNotFoundException {

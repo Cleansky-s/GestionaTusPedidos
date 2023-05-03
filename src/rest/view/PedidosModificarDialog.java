@@ -207,7 +207,7 @@ private Controller ctrl;
 		this.add(mainPanel);
 		
 		int selection = JOptionPane.showConfirmDialog(
-	            null, mainPanel, "Modificar Cliente : "
+	            null, mainPanel, "Modificar Pedido : "
 	            , JOptionPane.OK_CANCEL_OPTION
 	            , JOptionPane.PLAIN_MESSAGE);
 		
@@ -246,7 +246,7 @@ private Controller ctrl;
 	    	ctrl.updatePedido(ped);
 	    	
             JOptionPane.showMessageDialog(null
-                    , "Creado con exito"
+                    , "Modificado con exito"
                     , "Bienvenido "
                     , JOptionPane.PLAIN_MESSAGE);
 	    }

@@ -25,7 +25,7 @@ public class Main {
     //
     private static Controller control;
 
-    private static void initController(){
+    private static void initController() throws FileNotFoundException {
         control = new Controller();
     }
 

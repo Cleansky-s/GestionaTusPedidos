@@ -128,7 +128,7 @@ public class PedidosPedirDeliveryPlatosDialog extends JDialog implements Gestion
         this.add(mainPanel);
        
         int selection = JOptionPane.showConfirmDialog(
-                null, mainPanel, "Modificar Cliente : "
+                null, mainPanel, "Añadir plato : "
                 , JOptionPane.OK_CANCEL_OPTION
                 , JOptionPane.PLAIN_MESSAGE);
     	

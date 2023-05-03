@@ -127,7 +127,7 @@ public class PedidosCerrarDialog extends JDialog implements GestionObserver {
 		*/
 		this.add(mainPanel);
 		int selection = JOptionPane.showConfirmDialog(
-            null, mainPanel, "Modificar Cliente : "
+            null, mainPanel, "Cerrar Pedido : "
             , JOptionPane.OK_CANCEL_OPTION
             , JOptionPane.PLAIN_MESSAGE);
 	
@@ -158,7 +158,7 @@ public class PedidosCerrarDialog extends JDialog implements GestionObserver {
 	    	ctrl.deletePedido(ped.getId());
 	    	
             JOptionPane.showMessageDialog(null
-                    , "Creado con exito"
+                    , "Eliminado con exito"
                     , "Bienvenido "
                     , JOptionPane.PLAIN_MESSAGE);
 	    }

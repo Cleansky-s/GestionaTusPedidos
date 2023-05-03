@@ -177,14 +177,14 @@ public class PedidosConsultarDialog extends JDialog implements GestionObserver {
 		this.add(mainPanel);
 		
 		int selection = JOptionPane.showConfirmDialog(
-	            null, mainPanel, "Modificar Cliente : "
+	            null, mainPanel, "Consultar un pedido : "
 	            , JOptionPane.OK_CANCEL_OPTION
 	            , JOptionPane.PLAIN_MESSAGE);
 		
 	    if (selection == JOptionPane.OK_OPTION){
 	        	
             JOptionPane.showMessageDialog(null
-                    , "Creado con exito"
+                    , "Consultado con exito"
                     , "Bienvenido "
                     , JOptionPane.PLAIN_MESSAGE);
 	    }

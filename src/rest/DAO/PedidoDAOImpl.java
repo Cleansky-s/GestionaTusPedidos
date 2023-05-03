@@ -57,7 +57,7 @@ public class PedidoDAOImpl implements PedidoDAO{
 			Pedido p;
 			pedidoArray = jsonInput.getJSONArray("Pedido");
 			for(int i = 0; i < pedidoArray.length(); i++) {
-				if(!pedidoArray.getJSONObject(i).isNull(null)) {
+				if(!pedidoArray.isEmpty()) {
 					p = fac.createInstance(pedidoArray.getJSONObject(i));
 					lis.add(p);
 				}

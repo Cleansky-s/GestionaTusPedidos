@@ -47,6 +47,7 @@ public class ProveedorDAOImpl implements ProveedorDAO{
 	@Override
 	public void create(Proveedor t) {
 		try {
+			lis.add(t);
 			commit();
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
@@ -87,7 +88,7 @@ public class ProveedorDAOImpl implements ProveedorDAO{
 			Proveedor c;
 			proveedorArray = jsonInput.getJSONArray("Proveedor");
 			for(int i = 0; i < proveedorArray.length(); i++) {
-				if(!proveedorArray.getJSONObject(i).isNull(null)) {
+				if(!proveedorArray.isEmpty()) {
 					c = (Proveedor) fac.createInstance(proveedorArray.getJSONObject(i));
 					lis.add(c);
 				}

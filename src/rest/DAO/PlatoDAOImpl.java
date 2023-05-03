@@ -56,7 +56,7 @@ public class PlatoDAOImpl implements PlatoDAO{
 			Plato p;
 			pedidoArray = jsonInput.getJSONArray("Plato");
 			for(int i = 0; i < pedidoArray.length(); i++) {
-				if(!pedidoArray.getJSONObject(i).isNull(null)) {
+				if(!pedidoArray.isEmpty()) {
 					p = fac.createInstance(pedidoArray.getJSONObject(i));
 					lis.add(p);
 				}

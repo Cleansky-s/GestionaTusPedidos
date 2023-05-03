@@ -39,7 +39,7 @@ public class ClienteDAOImpl implements ClienteDAO{
 			Cliente c;
 			clienteArray = jsonInput.getJSONArray("Cliente");
 			for(int i = 0; i < clienteArray.length(); i++) {
-				if(!clienteArray.getJSONObject(i).isNull(null)) {
+				if(!clienteArray.isEmpty()) {
 					c = (Cliente) fac.createInstance(clienteArray.getJSONObject(i));
 					lis.add(c);
 				}
@@ -67,6 +67,7 @@ public class ClienteDAOImpl implements ClienteDAO{
 
 	@Override
 	public void create(Cliente t) {
+		lis.add(t);
 		try {
 			commit();
 		} catch (FileNotFoundException e) {
