@@ -1,4 +1,4 @@
-# GestionaTusPedidos - Memória
+# GestionaTusPedidos - Memoria
 
 - [Manual de Uso](./Documentos/Manual_de_Uso.pdf) - Manual que contiene las intrucciones para el uso adecuado del programa;
 
