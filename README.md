@@ -11,3 +11,9 @@
 - [Informe del trabajo](./Documentos/Informe_del_trabajo.pdf) - Informe requerido por el cliente, evaluando la participación de cada miembro del equipo;
 
 - [Usuario]: admin y contraseña "", para usar todas las funcionalidades del programa.
+
+- [URLs de los Estudiantes]: 
+      Juan Hibjan - https://github.com/hibjan
+      Leonardo Prado - https://github.com/L-Killjoy
+      Jiahao Ji - https://github.com/Cleansky-s
+ 
