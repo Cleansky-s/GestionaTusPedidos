@@ -10,4 +10,4 @@
 
 - [Informe del trabajo](./Documentos/Informe_del_trabajo.pdf) - Informe requerido por el cliente, evaluando la participación de cada miembro del equipo;
 
-- [Usuario]: admin y contraseña "".
+- [Usuario]: admin y contraseña "", para usar todas las funcionalidades del programa.
