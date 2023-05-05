@@ -1,6 +1,7 @@
 package rest.control;
 
 import java.io.FileNotFoundException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Vector;
 
@@ -55,6 +56,7 @@ public class Controller {
         daoCliente.read();
         daoPedido.read();
         daoProveedor.read();
+        daoPlato.read();
     }
 
     // Bridge methods
@@ -72,15 +74,15 @@ public class Controller {
     }
 
     public void listClienteAdd(List<Cliente> lC){
-        gtp.listClienteAdd(lC);
+        gtp.listClienteAdd(new ArrayList<Cliente>(lC));
     }
 
     public void listPedidoAdd(List<Pedido> lPe){
-        gtp.listPedidoAdd(lPe);
+        gtp.listPedidoAdd(new ArrayList<Pedido>(lPe));
     }
 
     public void listProvAdd(List<Proveedor> lPr){
-        gtp.listProvAdd(lPr);
+        gtp.listProvAdd(new ArrayList<Proveedor>(lPr));
     }
 
     public void createCliente(Cliente t) {
@@ -90,15 +92,16 @@ public class Controller {
 
     public void deleteCliente(String ClienteID) {
         Cliente c = daoCliente.search(ClienteID);
-        gtp.removeCliente(c);
-        daoCliente.delete(c);
+        if(gtp.removeCliente(c))
+        	daoCliente.delete(c);
     }
 
     public Cliente buscarCliente(String selectedClienteID) {
         return daoCliente.search(selectedClienteID);
     }
 
-    public void updatedCliente(Cliente c1) {
+    public void updateCliente(Cliente c1) {
+    	gtp.updateCliente(c1);
         daoCliente.update(c1);
     }
     
@@ -109,15 +112,16 @@ public class Controller {
 
     public void deleteProveedor(String ProvID) {
     	Proveedor p = daoProveedor.search(ProvID);
-        gtp.removeProveedor(p);
-        daoProveedor.delete(p);
+        if(gtp.removeProveedor(p))
+        	daoProveedor.delete(p);
     }
 
     public Proveedor buscarProveedor(String selectedProvID) {
         return daoProveedor.search(selectedProvID);
     }
 
-    public void updatedProveedor(Proveedor p) {
+    public void updateProveedor(Proveedor p) {
+    	gtp.updateProveedor(p);
     	daoProveedor.update(p);
     }
     
@@ -130,8 +134,8 @@ public class Controller {
 
     public void deletePedido(String PedidoID) {
         Pedido ped = daoPedido.search(PedidoID);
-        gtp.removePedido(ped);
-        daoPedido.delete(ped);
+        if(gtp.removePedido(ped))
+        	daoPedido.delete(ped);
         for(Plato plat: ped.getPlatos())
         	daoPlato.delete(plat);
     }
@@ -150,4 +154,25 @@ public class Controller {
 	public String generateIdPedido() {
 		return daoPedido.GenerateNewId();
 	}
+
+	public String generateIdPlato() {
+		return daoPlato.GenerateNewId();
+	}
+	
+	public String generateIdCliente() {
+		return daoCliente.GenerateNewId();
+	}
+	
+	public String generateIdProveedor() {
+		return daoProveedor.GenerateNewId();
+	}
+
+	public void addClientPoints(String id, int points) {
+		Cliente c = buscarCliente(id);
+		if(c!=null) {
+			c.setPoints(points);
+		}
+		daoCliente.update(c);
+	}
+	
 }

@@ -12,7 +12,13 @@ private String web;
 		this.deuda = deudaPr;
 	}
 	
-    public String getWeb() {
+	public Proveedor(Proveedor p) {
+        super(p.getId(), p.getNombre(), p.getdDireccion(), p.getTelefono(), p.getEmail());
+        this.web = p.getWeb();
+        this.deuda = p.getDeuda();
+    }
+
+	public String getWeb() {
         return web;
     }
     

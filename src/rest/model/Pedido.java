@@ -16,28 +16,32 @@ public abstract class Pedido {
 	//Map<Plato, Integer> platos;
 	List<Plato> platos;
 	
-	public Pedido(String id, String idCliente, List<Plato> platos) {
+	public Pedido(Pedido ped) {
+		this.id = ped.getId();
+		this.idCliente = ped.getIdCliente();
+		this.platos = ped.getPlatos();
+		this.cuenta = ped.getCuenta();
+	}
+	
+	public Pedido(String id, String idCliente, List<Plato> platos, Double cuenta) {
 		this.id = id;
 		this.idCliente = idCliente;
 		this.platos = platos;
-		cuenta = 0.0;
+		this.cuenta = cuenta;
+		
+		if(this.cuenta != null && this.cuenta == 0) {
+			for(Plato p: platos)
+				this.cuenta += p.getPrice()*p.getCant();
+		}
 	}
 	
 	public abstract String  getType();
 	
 	public void addPlato(Plato plato) {
-		int i = 0;
-		boolean found = false;
-		while(i < platos.size() && !found) {
-			if(platos.get(i).equals(plato)) {
-				found = true;
-			}
-			i++;
-		}
+		this.cuenta += plato.getPrice()*plato.getCant();
 		
 		platos.add(plato);
 			
-		cuenta += plato.getPrice();
 	}
 	
 	public void removePlato(Plato plato) {

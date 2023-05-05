@@ -44,6 +44,16 @@ public class UserDAOImpl implements UserDAO {
 		return user;
 	}
 
+	public boolean checkPassword(String id, String password) {
+		boolean valid = false;
+		User user = search(id);
+		
+		if(user != null && user.getPassword().equals(password))
+			valid = true;
+		
+		return valid;
+	}
+	
 	@Override
 	public void read() throws FileNotFoundException {
 		JSONArray  userArray;

@@ -75,7 +75,7 @@ public class ClienteModificarEvent extends JDialog implements GestionObserver {
                 datas[i] = String.valueOf(dataField[i].getText());
             }
             Cliente c1 = new Cliente(c.getId(),datas[0],datas[1],datas[2],datas[3]);
-            ctrl.updatedCliente(c1);
+            ctrl.updateCliente(c1);
             JOptionPane.showMessageDialog(null
                     , "Has modificado a cliente :" + c.getId()
                     , "Bienvenido "

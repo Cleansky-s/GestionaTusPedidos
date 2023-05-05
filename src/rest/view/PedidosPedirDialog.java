@@ -90,7 +90,6 @@ public class PedidosPedirDialog extends JDialog implements GestionObserver {
 		
 		mainPanel.add(buttonPanel, BorderLayout.CENTER);
 		
-		
 		this.add(mainPanel);
 		pack();
 		setVisible(true);

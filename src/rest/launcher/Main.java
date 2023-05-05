@@ -31,8 +31,6 @@ public class Main {
 
 
     private static void startGUIMode() throws Exception {
-        //control.loadData();
-        //SwingUtilities.invokeAndWait(() -> new MainWindow(control, 0));
         SwingUtilities.invokeLater(() -> {
 			try {
 				new UserLogin(control);

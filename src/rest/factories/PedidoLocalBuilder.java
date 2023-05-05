@@ -47,17 +47,16 @@ public class PedidoLocalBuilder extends Builder<Pedido> {
 			 for (int i = 0; i < jArray.length(); i++) {
 	                JSONObject platoData = jArray.getJSONObject(i);
 	                Plato plato = daoPlato.search(platoData.get("idPlato").toString());
-	                //Plato plato = new Plato(platoData.get("idPlato").toString(), nombre, ingredientes, price, cant);
 	                platos.add(plato);
 	            }
 		}
 		
 		if(data.has("idCliente")) {
-			ped = new PedidoLocal(data.get("id").toString(), data.get("idCliente").toString(), platos,
+			ped = new PedidoLocal(data.get("id").toString(), data.get("idCliente").toString(), platos, Double.parseDouble(data.get("cuenta").toString()),
 					data.get("idMesa").toString());
 		}
 		else {
-			ped = new PedidoLocal(data.get("id").toString(), null, platos,
+			ped = new PedidoLocal(data.get("id").toString(), null, platos, Double.parseDouble(data.get("cuenta").toString()),
 					data.get("idMesa").toString());
 		}
 		

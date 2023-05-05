@@ -41,10 +41,12 @@ public class PlatosTableModel extends AbstractTableModel {
 		case 1:
 			return platos.get(rowIndex).getCant();
 		case 2:
-			if(platos.get(rowIndex).getStateCocina())
-				return "Listo";
-			else
+			if(!platos.get(rowIndex).getStateCocina() && !platos.get(rowIndex).getStateCamarero())
 				return "En cocina";
+			else if(platos.get(rowIndex).getStateCocina() && !platos.get(rowIndex).getStateCamarero())
+				return "Listo";
+			else if(platos.get(rowIndex).getStateCocina() && platos.get(rowIndex).getStateCamarero())
+				return "Recogido";
 		default:
 			return null;
 		}

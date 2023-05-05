@@ -14,7 +14,7 @@ public class ProveedorAltaDialog extends JDialog implements GestionObserver {
     private Controller ctrl;
     private JTextField[] dataField;
     private String datas[];
-    private final static int dataSize = 6;
+    private final static int dataSize = 5;
 
     public ProveedorAltaDialog(Frame parent, Controller ctrl){
         super(parent, true);
@@ -49,7 +49,6 @@ public class ProveedorAltaDialog extends JDialog implements GestionObserver {
         JLabel telefono = new JLabel("Introduce telefono : ");
         JLabel email = new JLabel("Introduce email : ");
         JLabel web = new JLabel("Introduce pagina web : ");
-        JLabel id = new JLabel("Introduce id : ");
         centerPanel.add(nombre);
         centerPanel.add(dataField[0]);
         centerPanel.add(direccion);
@@ -60,8 +59,6 @@ public class ProveedorAltaDialog extends JDialog implements GestionObserver {
         centerPanel.add(dataField[3]);
         centerPanel.add(web);
         centerPanel.add(dataField[4]);
-        centerPanel.add(id);
-        centerPanel.add(dataField[5]);
         mainPanel.add(centerPanel);
         int selection = JOptionPane.showConfirmDialog(
                 null, mainPanel, "Alta Proveedor : "
@@ -71,7 +68,7 @@ public class ProveedorAltaDialog extends JDialog implements GestionObserver {
         if (selection == JOptionPane.OK_OPTION) {
             for ( int i = 0; i < dataSize; i++)
             	datas[i] = String.valueOf(dataField[i].getText());
-            Proveedor p = new Proveedor(datas[5],datas[0],datas[1],datas[2],datas[3], datas[4], 0.0);
+            Proveedor p = new Proveedor(ctrl.generateIdProveedor(),datas[0],datas[1],datas[2],datas[3], datas[4], 0.0);
             this.ctrl.createProveedor(p);
             JOptionPane.showMessageDialog(null
                     , "Has dado alta a proveedor :" + p.getId()

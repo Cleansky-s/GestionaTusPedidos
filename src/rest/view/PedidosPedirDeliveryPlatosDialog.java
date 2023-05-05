@@ -134,22 +134,10 @@ public class PedidosPedirDeliveryPlatosDialog extends JDialog implements Gestion
     	
     	    if (selection == JOptionPane.OK_OPTION){
     	    	
-    	    	List<Builder<Plato>> b2 = new Vector<>();
-	            b2.add(new PlatoBuilder());
-	    		PlatoDAOImpl daoPlato = new PlatoDAOImpl(new BuilderBasedFactory<Plato>(b2));
-    	        
-	    		try {
-					daoPlato.read();
-				} catch (FileNotFoundException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				}
-    	    	
     	    	Pedido ped = pedido;
     	        
     	        for(Plato p: platosList) {
     	        	ped.addPlato(p);
-    	        	daoPlato.create(p);
     	        }
     	        	
     	    	ctrl.updatePedido(ped);

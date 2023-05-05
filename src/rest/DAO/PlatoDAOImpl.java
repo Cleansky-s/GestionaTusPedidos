@@ -52,13 +52,15 @@ public class PlatoDAOImpl implements PlatoDAO{
 		InputStream in = new FileInputStream(new File("resources/Plato.json"));
 		JSONObject jsonInput = new JSONObject(new JSONTokener(in));
 		try {
-			//Read and create Cliente
-			Plato p;
-			pedidoArray = jsonInput.getJSONArray("Plato");
-			for(int i = 0; i < pedidoArray.length(); i++) {
-				if(!pedidoArray.isEmpty()) {
-					p = fac.createInstance(pedidoArray.getJSONObject(i));
-					lis.add(p);
+			if(!jsonInput.isEmpty()){
+				//Read and create Cliente
+				Plato p;
+				pedidoArray = jsonInput.getJSONArray("Plato");
+				for(int i = 0; i < pedidoArray.length(); i++) {
+					if(!pedidoArray.isEmpty()) {
+						p = fac.createInstance(pedidoArray.getJSONObject(i));
+						lis.add(p);
+					}
 				}
 			}
 			// Pass the list to the model
@@ -94,7 +96,8 @@ public class PlatoDAOImpl implements PlatoDAO{
 
 	@Override
 	public void delete(Plato p) {
-		lis.remove(p);
+		Plato plat = search(p.getId());
+		lis.remove(plat);
 		try {
 			commit();
 		} catch (FileNotFoundException e) {
@@ -136,9 +139,6 @@ public class PlatoDAOImpl implements PlatoDAO{
 				a.put("estadoCamarero", "recogido");
 			
 			o.append("Plato",a);
-		}
-		if(lis.size() == 0) {
-			o.append("Plato", new JSONObject());
 		}
 		p.print(o.toString());
 	}

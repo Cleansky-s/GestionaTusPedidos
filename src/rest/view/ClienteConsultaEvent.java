@@ -44,11 +44,13 @@ public class ClienteConsultaEvent extends JDialog implements GestionObserver {
         JLabel telefono = new JLabel("telefono : "+ c.getTelefono());
         JLabel email = new JLabel("email : "+ c.getEmail());
         JLabel id = new JLabel("id : "+ c.getId());
+        JLabel ponts = new JLabel("Puntos : "+ c.getPoints().toString());
         centerPanel.add(id);
         centerPanel.add(nombre);
         centerPanel.add(dirireccion);
         centerPanel.add(telefono);
         centerPanel.add(email);
+        centerPanel.add(ponts);
         mainPanel.add(centerPanel);
         int selection = JOptionPane.showConfirmDialog(
                 null, mainPanel, "Consultar Cliente : "

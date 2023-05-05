@@ -86,7 +86,7 @@ public class ClienteBajaDialog extends JDialog implements GestionObserver {
 
     @Override
     public void onCliDeleted(Cliente cli) {
-        clienteList.remove(cli);
+    	clienteList.remove(search(cli.getId()));
         updateClienteModel(clienteList);
     }
 
@@ -102,8 +102,7 @@ public class ClienteBajaDialog extends JDialog implements GestionObserver {
 
     @Override
     public void onCliUpdated(Cliente cli) {
-        Cliente toRemove = search(cli.getId());
-        clienteList.remove(toRemove);
+        clienteList.remove(search(cli.getId()));
         clienteList.add(cli);
         clienteModel.removeAllElements();
         for(Cliente c : clienteList){

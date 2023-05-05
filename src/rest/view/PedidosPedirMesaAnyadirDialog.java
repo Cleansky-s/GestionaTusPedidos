@@ -171,12 +171,7 @@ public class PedidosPedirMesaAnyadirDialog extends JDialog implements GestionObs
 	    	String nombre = (String) comboBoxPlatos.getSelectedItem();
 	    	
 	    	//ID
-	    	List<Builder<Plato>> b2 = new Vector<>();
-            b2.add(new PlatoBuilder());
-    		
-    		PlatoDAOImpl daoPlato = new PlatoDAOImpl(new BuilderBasedFactory<Plato>(b2));
-    		
-    		String id = daoPlato.GenerateNewId();
+    		String id = ctrl.generateIdPlato();
     		
     		//Price
     		Double price = 0.0;

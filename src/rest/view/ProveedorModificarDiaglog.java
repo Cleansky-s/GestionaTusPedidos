@@ -98,7 +98,7 @@ public class ProveedorModificarDiaglog extends JDialog implements GestionObserve
 
     @Override
     public void onProvDeleted(Proveedor prov) {
-        proveedorList.remove(prov);
+        proveedorList.remove(search(prov.getId()));
         updateProveedorModel(proveedorList);
     }
 
@@ -114,8 +114,7 @@ public class ProveedorModificarDiaglog extends JDialog implements GestionObserve
 
     @Override
     public void onProvUpdated(Proveedor prov) {
-    	   Proveedor toRemove = search(prov.getId());
-           proveedorList.remove(toRemove);
+           proveedorList.remove(search(prov.getId()));
            proveedorList.add(prov);
            proveedorModel.removeAllElements();
            for(Proveedor p : proveedorList){

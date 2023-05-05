@@ -51,7 +51,7 @@ public class PlatoBuilder extends Builder<Plato> {
 		
 		if(data.get("estadoCocina").equals("listo"))
 			listo = true;
-		if(data.get("estadoCocina").equals("recogido"))
+		if(data.get("estadoCamarero").equals("recogido"))
 			recogido = true;
 		
 		plato = new Plato(data.get("id").toString(), data.get("nombre").toString(), ingredientes,

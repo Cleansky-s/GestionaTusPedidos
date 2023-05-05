@@ -53,18 +53,22 @@ public class PedidoDAOImpl implements PedidoDAO{
 		InputStream in = new FileInputStream(new File("resources/Pedido.json"));
 		JSONObject jsonInput = new JSONObject(new JSONTokener(in));
 		try {
-			//Read and create Cliente
-			Pedido p;
-			pedidoArray = jsonInput.getJSONArray("Pedido");
-			for(int i = 0; i < pedidoArray.length(); i++) {
-				if(!pedidoArray.isEmpty()) {
-					p = fac.createInstance(pedidoArray.getJSONObject(i));
-					lis.add(p);
+			//Read and create Pedido
+			if(!jsonInput.isEmpty()){
+				Pedido p;
+				pedidoArray = jsonInput.getJSONArray("Pedido");
+				for(int i = 0; i < pedidoArray.length(); i++) {
+					if(!pedidoArray.isEmpty()) {
+						p = fac.createInstance(pedidoArray.getJSONObject(i));
+						lis.add(p);
+					}
+					
 				}
-				
+				// Pass the list to the model
+				control.listPedidoAdd(this.listAll());
 			}
-			// Pass the list to the model
-			control.listPedidoAdd(this.listAll());
+			else
+				control.listPedidoAdd(this.listAll());
 		}
 		catch(JSONException e) {
 			throw new IllegalArgumentException();
@@ -132,12 +136,10 @@ public class PedidoDAOImpl implements PedidoDAO{
 				}
 				a.put("platos", platosArray);
 			}
-
+			
+			a.put("cuenta", lis.get(i).getCuenta().toString());
 			
 			o.append("Pedido",a);
-		}
-		if(lis.size() == 0) {
-			o.append("Pedido", new JSONObject());
 		}
 		p.print(o.toString());
 	}

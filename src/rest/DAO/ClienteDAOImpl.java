@@ -110,6 +110,7 @@ public class ClienteDAOImpl implements ClienteDAO{
 			a.put("direccion",lis.get(i).getdDireccion());
 			a.put("telefono",lis.get(i).getTelefono());
 			a.put("email",lis.get(i).getEmail());
+			a.put("puntos", lis.get(i).getPoints().toString());
 			o.append("Cliente",a);
 		}
 		p.print(o.toString());

@@ -18,7 +18,7 @@ public class ClienteBuilder extends Builder<Persona> {
 		if (data == null)
 			throw new IllegalArgumentException("Invalid value for createInstance: null");
 
-		Cliente c = new Cliente(data.getString("id"),data.getString("nombre"),data.getString("direccion"),data.getString("telefono"),data.getString("email"));
+		Cliente c = new Cliente(data.getString("id"),data.getString("nombre"),data.getString("direccion"),data.getString("telefono"),data.getString("email"), data.getString("puntos"));
 		return c;
 
 	}

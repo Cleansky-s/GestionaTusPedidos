@@ -1,5 +1,6 @@
 package rest.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class PedidoDomicilio extends Pedido {
@@ -8,8 +9,16 @@ public class PedidoDomicilio extends Pedido {
 	String direccion;
 	String telefono;
 	
-	public PedidoDomicilio(String id, String idCliente, List<Plato> platos, String direccion, String telefono, String CP) {
-		super(id, idCliente, platos);
+	public PedidoDomicilio(Pedido ped) {
+		super(ped);
+		this.direccion = ped.getDireccion();
+		this.telefono = ped.getTelefono();
+		this.CP = ped.getCP();
+		this.type = "Delivery";
+	}
+	
+	public PedidoDomicilio(String id, String idCliente, List<Plato> platos, Double cuenta, String direccion, String telefono, String CP) {
+		super(id, idCliente, platos, cuenta);
 		this.direccion = direccion;
 		this.telefono = telefono;
 		this.CP = CP;
@@ -17,7 +26,7 @@ public class PedidoDomicilio extends Pedido {
 	}
 
 	public PedidoDomicilio() {
-		super(null, null, null);
+		super(null, null, new ArrayList<>(), null);
 	}
 
 	@Override

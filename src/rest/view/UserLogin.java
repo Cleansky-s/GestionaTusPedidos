@@ -147,14 +147,7 @@ public class UserLogin extends JFrame implements ActionListener {
     }
 
     private boolean isValidCredentials(String username, String password) {
-        boolean valid = false;
-        
-        User user = this.daoUser.search(username);
-        
-        if(user != null)
-        	valid = true;
-        
-        return valid;
+       return ((UserDAOImpl) daoUser).checkPassword(username, password);
     }
     
 

@@ -98,7 +98,7 @@ public class ProveedorModificarEvent extends JDialog implements GestionObserver 
             */
             Proveedor p1 = 
             		new Proveedor(p.getId(),datas[0],datas[1],datas[2],datas[3],datas[4], p.getDeuda());
-            ctrl.updatedProveedor(p1);
+            ctrl.updateProveedor(p1);
             JOptionPane.showMessageDialog(null
                     , "Has modificado al proveedor :" + p.getId()
                     , "Bienvenido "

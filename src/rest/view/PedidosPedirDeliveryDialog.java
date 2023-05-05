@@ -92,19 +92,20 @@ public class PedidosPedirDeliveryDialog extends JDialog implements GestionObserv
         	PedidoDomicilio ped = new PedidoDomicilio();
     
         	if(data[0].equals(""))
-        		ped = new PedidoDomicilio(ctrl.generateIdPedido(), null, platos, data[1], data[3], data[2]);
-        	else
-        		ped = new PedidoDomicilio(ctrl.generateIdPedido(), data[0], platos, data[1], data[3], data[2]);
+        		ped = new PedidoDomicilio(ctrl.generateIdPedido(), null, platos, 0.0, data[1], data[3], data[2]);
+        	else {
+        		ped = new PedidoDomicilio(ctrl.generateIdPedido(), data[0], platos, 0.0, data[1], data[3], data[2]);
+        	}
         	
             ctrl.createPedido(ped);
             
             pedirDialog = new PedidosPedirDeliveryPlatosDialog(Utils.getWindow(this), ctrl, ped);
+            if(ped.getPlatos().size() > 0 && !data[0].equals("")) {
+            	ctrl.addClientPoints(data[0], 10);
+            	
+            }
             pedirDialog = null;
             
-            JOptionPane.showMessageDialog(null
-                    , "Creado con exito"
-                    , "Bienvenido "
-                    , JOptionPane.PLAIN_MESSAGE);
         }
         else if (selection == JOptionPane.CANCEL_OPTION)
         {

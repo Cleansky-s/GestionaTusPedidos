@@ -172,18 +172,7 @@ public class PedidosPedirMesaDialog extends JDialog implements GestionObserver {
     	        }
     	        
     	        if(!found) {
-    	        	List<Builder<Pedido>> b2 = new Vector<>();
-    	            b2.add(new PedidoLocalBuilder());
-    	            b2.add(new PedidoDomicilioBuilder());
-    	    		PedidoDAOImpl daoPedido = new PedidoDAOImpl(new BuilderBasedFactory<Pedido>(b2), this.ctrl);
-    	        	
-    	    		try {
-						daoPedido.read();
-					} catch (FileNotFoundException e1) {
-						e1.printStackTrace();
-					}
-    	    		
-    	        	ped = new PedidoLocal(daoPedido.GenerateNewId() , null, platosList, comboBoxMesas.getSelectedItem().toString());
+    	        	ped = new PedidoLocal(ctrl.generateIdPedido() , null, platosList, 0.0, comboBoxMesas.getSelectedItem().toString());
     	        	ctrl.createPedido(ped);
     	        }
     	        
@@ -191,23 +180,7 @@ public class PedidosPedirMesaDialog extends JDialog implements GestionObserver {
     	        	for(Plato p: platosList)
         	        	ped.addPlato(p);
     	        	ctrl.updatePedido(ped);
-    	        }
-    	        
-    	        List<Builder<Plato>> b2 = new Vector<>();
-	            b2.add(new PlatoBuilder());
-	    		PlatoDAOImpl daoPlato = new PlatoDAOImpl(new BuilderBasedFactory<Plato>(b2));
-    	        
-	    		try {
-					daoPlato.read();
-				} catch (FileNotFoundException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				}
-	    		
-    	        for(Plato p: platosList)
-    	        	daoPlato.create(p);
-
-    	        	
+    	        }	
     	    	
                 JOptionPane.showMessageDialog(null
                         , "Creado con exito"

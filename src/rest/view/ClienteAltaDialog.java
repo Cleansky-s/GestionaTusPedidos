@@ -15,6 +15,7 @@ public class ClienteAltaDialog extends JDialog implements GestionObserver {
     private Controller ctrl;
     private JTextField[] dataField;
     private String datas[];
+    private final Integer datasSIZE = 4;
 
     public ClienteAltaDialog(Frame parent, Controller ctrl){
         super(parent, true);
@@ -25,13 +26,10 @@ public class ClienteAltaDialog extends JDialog implements GestionObserver {
     }
 
     private void initiate(){
-        datas = new String[5];
-        dataField = new JTextField[5];
-        dataField[0] = new JTextField(15);
-        dataField[1] = new JTextField(15);
-        dataField[2] = new JTextField(15);
-        dataField[3] = new JTextField(15);
-        dataField[4] = new JTextField(15);
+        datas = new String[datasSIZE];
+        dataField = new JTextField[datasSIZE];
+        for(int i = 0; i < datasSIZE; i++)
+        	dataField[i] = new JTextField(15);
     }
 
     private void initGUI() {
@@ -51,7 +49,7 @@ public class ClienteAltaDialog extends JDialog implements GestionObserver {
         JLabel dirireccion = new JLabel("Introduce dirireccion : ");
         JLabel telefono = new JLabel("Introduce telefono : ");
         JLabel email = new JLabel("Introduce email : ");
-        JLabel id = new JLabel("Introduce id : ");
+        //JLabel id = new JLabel("Introduce id : ");
         centerPanel.add(nombre);
         centerPanel.add(dataField[0]);
         centerPanel.add(dirireccion);
@@ -60,8 +58,8 @@ public class ClienteAltaDialog extends JDialog implements GestionObserver {
         centerPanel.add(dataField[2]);
         centerPanel.add(email);
         centerPanel.add(dataField[3]);
-        centerPanel.add(id);
-        centerPanel.add(dataField[4]);
+        //centerPanel.add(id);
+        //centerPanel.add(dataField[4]);
         mainPanel.add(centerPanel);
         int selection = JOptionPane.showConfirmDialog(
                 null, mainPanel, "Alta Cliente : "
@@ -70,11 +68,11 @@ public class ClienteAltaDialog extends JDialog implements GestionObserver {
 
         if (selection == JOptionPane.OK_OPTION)
         {
-            for ( int i = 0; i < 5; i++)
+            for ( int i = 0; i < datasSIZE ; i++)
         {
             datas[i] = String.valueOf(dataField[i].getText());
         }
-            Cliente c = new Cliente(datas[4],datas[0],datas[1],datas[2],datas[3]);
+            Cliente c = new Cliente(ctrl.generateIdCliente(),datas[0],datas[1],datas[2],datas[3]);
             this.ctrl.createCliente(c);
             JOptionPane.showMessageDialog(null
                     , "Has dado alta a cliente :" + c.getId()

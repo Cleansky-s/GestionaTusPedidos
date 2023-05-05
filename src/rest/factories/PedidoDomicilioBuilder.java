@@ -53,11 +53,11 @@ public class PedidoDomicilioBuilder extends Builder<Pedido> {
 		}
 		
 		if(data.has("idCliente")) {
-			ped = new PedidoDomicilio(data.get("id").toString(), data.get("idCliente").toString(), platos,
+			ped = new PedidoDomicilio(data.get("id").toString(), data.get("idCliente").toString(), platos, Double.parseDouble(data.get("cuenta").toString()),
 					data.get("direccion").toString(), data.get("telefono").toString(), data.get("CP").toString());
 		}
 		else {
-			ped = new PedidoDomicilio(data.get("id").toString(), null, platos,
+			ped = new PedidoDomicilio(data.get("id").toString(), null, platos, Double.parseDouble(data.get("cuenta").toString()),
 					data.get("direccion").toString(), data.get("telefono").toString(), data.get("CP").toString());
 		}
 		

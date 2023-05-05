@@ -13,9 +13,12 @@ import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JDialog;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
 
 import org.json.JSONObject;
 
@@ -38,6 +41,8 @@ public class PedidosCerrarDialog extends JDialog implements GestionObserver {
 	private DefaultComboBoxModel<String> pedidosModel;
 	private JComboBox<String> comboBoxOptions;
 	private JComboBox<String> comboBoxPedidos;
+	
+	private JDialog facturaDialog;
 
 	public PedidosCerrarDialog(Frame parent, Controller ctrl) {
 		super(parent, true);
@@ -84,47 +89,6 @@ public class PedidosCerrarDialog extends JDialog implements GestionObserver {
 		
 		mainPanel.add(boxesPanel, BorderLayout.NORTH);
 		
-		/*
-		JPanel buttonPanel = new JPanel();
-		buttonPanel.setLayout(new BoxLayout(buttonPanel, BoxLayout.X_AXIS));
-		buttonPanel.add(Box.createHorizontalGlue());
-		
-		cerrarButton = new JButton();
-		cerrarButton.setEnabled(false);
-		cerrarButton.setBackground(Color.red);
-		cerrarButton.setMaximumSize(new Dimension(150, 150));
-		cerrarButton.setMinimumSize(new Dimension(150, 150));
-		cerrarButton.setPreferredSize(new Dimension(150, 150));
-		cerrarButton.setToolTipText("Cerrar una cuenta");
-		cerrarButton.setText("CONFIRMAR");
-		cerrarButton.addActionListener((e)->{
-			 String selectedOption = (String) comboBoxOptions.getSelectedItem();
-			 if (selectedOption.equals("Mesa")) {
-				 int i = 0;
-				 boolean found = false;
-				 String mesa = comboBoxPedidos.getSelectedItem().toString();
-				 String id = "";
-				 while(i < pedidosMesa.size() && !found) {
-					 if(pedidosMesa.get(i).getIdMesa().equals(mesa)) {
-						 found = true;
-						 id = pedidosMesa.get(i).getId();
-					 }
-					 i++;
-				 }
-				 ctrl.deletePedido(id);
-		     } 
-			 else {
-		        ctrl.deletePedido(comboBoxPedidos.getSelectedItem().toString());
-		     }
-	    	
-	    	setVisible(false);
-		});
-		
-		buttonPanel.add(cerrarButton);
-		buttonPanel.add(Box.createHorizontalGlue());
-		
-		mainPanel.add(buttonPanel, BorderLayout.CENTER);
-		*/
 		this.add(mainPanel);
 		int selection = JOptionPane.showConfirmDialog(
             null, mainPanel, "Cerrar Pedido : "
@@ -155,6 +119,9 @@ public class PedidosCerrarDialog extends JDialog implements GestionObserver {
 	    		}
 	    	}
 	    	
+	    	this.facturaDialog = new PedidosCerrarFacturaDialog(Utils.getWindow(this), ped);
+	    	this.facturaDialog = null;
+	    	
 	    	ctrl.deletePedido(ped.getId());
 	    	
             JOptionPane.showMessageDialog(null
@@ -162,6 +129,7 @@ public class PedidosCerrarDialog extends JDialog implements GestionObserver {
                     , "Bienvenido "
                     , JOptionPane.PLAIN_MESSAGE);
 	    }
+	    
 	    else if (selection == JOptionPane.CANCEL_OPTION){
 	    	// Do something here.
 	    }
